@@ -1,0 +1,1017 @@
+{
+  "info": {
+    "_postman_id": "2e12d010-ac02-40de-8c94-23a55a1fe9dc",
+    "name": "Restful-broker",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "16322437",
+    "_collection_link": "https://go.postman.co/collection/16322437-2e12d010-ac02-40de-8c94-23a55a1fe9dc?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "auth tests",
+      "item": [
+        {
+          "name": "correct_auth",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const jsonData = pm.response.json();\r",
+                  "pm.environment.set(\"token\", jsonData.token);"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"username\" : \"admin\",\r\n    \"password\" : \"password123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://restful-booker.herokuapp.com/auth",
+              "protocol": "https",
+              "host": [
+                "restful-booker",
+                "herokuapp",
+                "com"
+              ],
+              "path": [
+                "auth"
+              ]
+            },
+            "description": "TC auth_1"
+          },
+          "response": []
+        },
+        {
+          "name": "incorrect_username_1",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"username\" : \" admin\",\r\n    \"password\" : \"password123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://restful-booker.herokuapp.com/auth",
+              "protocol": "https",
+              "host": [
+                "restful-booker",
+                "herokuapp",
+                "com"
+              ],
+              "path": [
+                "auth"
+              ]
+            },
+            "description": "TC auth_2"
+          },
+          "response": []
+        },
+        {
+          "name": "incorrect_username_2",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"username\" : \"admin_\",\r\n    \"password\" : \"password123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://restful-booker.herokuapp.com/auth",
+              "protocol": "https",
+              "host": [
+                "restful-booker",
+                "herokuapp",
+                "com"
+              ],
+              "path": [
+                "auth"
+              ]
+            },
+            "description": "TC auth_2"
+          },
+          "response": []
+        },
+        {
+          "name": "incorrect_username_3",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"username\" : \"\",\r\n    \"password\" : \"password123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://restful-booker.herokuapp.com/auth",
+              "protocol": "https",
+              "host": [
+                "restful-booker",
+                "herokuapp",
+                "com"
+              ],
+              "path": [
+                "auth"
+              ]
+            },
+            "description": "TC auth_2"
+          },
+          "response": []
+        },
+        {
+          "name": "incorrect_username_4",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"username\" : \"<b>admin</b>\",\r\n    \"password\" : \"password123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://restful-booker.herokuapp.com/auth",
+              "protocol": "https",
+              "host": [
+                "restful-booker",
+                "herokuapp",
+                "com"
+              ],
+              "path": [
+                "auth"
+              ]
+            },
+            "description": "TC auth_2"
+          },
+          "response": []
+        },
+        {
+          "name": "incorrect_username_5",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"username\" : \"' OR 1=1 --\",\r\n    \"password\" : \"password123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://restful-booker.herokuapp.com/auth",
+              "protocol": "https",
+              "host": [
+                "restful-booker",
+                "herokuapp",
+                "com"
+              ],
+              "path": [
+                "auth"
+              ]
+            },
+            "description": "TC auth_2"
+          },
+          "response": []
+        },
+        {
+          "name": "incorrect_pass_1",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"username\" : \"admin\",\r\n    \"password\" : \"/password123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://restful-booker.herokuapp.com/auth",
+              "protocol": "https",
+              "host": [
+                "restful-booker",
+                "herokuapp",
+                "com"
+              ],
+              "path": [
+                "auth"
+              ]
+            },
+            "description": "TC auth_3"
+          },
+          "response": []
+        },
+        {
+          "name": "incorrect_pass_2",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"username\" : \"<b>admin</b>\",\r\n    \"password\" : \"password123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://restful-booker.herokuapp.com/auth",
+              "protocol": "https",
+              "host": [
+                "restful-booker",
+                "herokuapp",
+                "com"
+              ],
+              "path": [
+                "auth"
+              ]
+            },
+            "description": "TC auth_3"
+          },
+          "response": []
+        },
+        {
+          "name": "incorrect_pass_3",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"username\" : \"admin\",\r\n    \"password\" : \"\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://restful-booker.herokuapp.com/auth",
+              "protocol": "https",
+              "host": [
+                "restful-booker",
+                "herokuapp",
+                "com"
+              ],
+              "path": [
+                "auth"
+              ]
+            },
+            "description": "TC auth_3"
+          },
+          "response": []
+        },
+        {
+          "name": "incorrect_pass_4",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"username\" : \"admin\",\r\n    \"password\" : \"<i>password123</i>\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://restful-booker.herokuapp.com/auth",
+              "protocol": "https",
+              "host": [
+                "restful-booker",
+                "herokuapp",
+                "com"
+              ],
+              "path": [
+                "auth"
+              ]
+            },
+            "description": "TC auth_3"
+          },
+          "response": []
+        },
+        {
+          "name": "incorrect_pass_5",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"username\" : \"admin\",\r\n    \"password\" : \"<script>Hello</script>\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://restful-booker.herokuapp.com/auth",
+              "protocol": "https",
+              "host": [
+                "restful-booker",
+                "herokuapp",
+                "com"
+              ],
+              "path": [
+                "auth"
+              ]
+            },
+            "description": "TC auth_3"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "booking tests",
+      "item": [
+        {
+          "name": "correct_booking_1",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"firstname\" : \"Jim_test\",\r\n    \"lastname\" : \"Brown_test\",\r\n    \"totalprice\" : 10000,\r\n    \"depositpaid\" : true,\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"2026-09-01\",\r\n        \"checkout\" : \"2027-09-01\"\r\n    },\r\n    \"additionalneeds\" : \"Breakfast\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://restful-booker.herokuapp.com/booking",
+              "protocol": "https",
+              "host": [
+                "restful-booker",
+                "herokuapp",
+                "com"
+              ],
+              "path": [
+                "booking"
+              ]
+            },
+            "description": "TC booking_1 Стандартная регистрация"
+          },
+          "response": []
+        },
+        {
+          "name": "correct_booking_2",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"firstname\" : \"Джи-м\",\r\n    \"lastname\" : \"О'Браун\",\r\n    \"totalprice\" : 1,\r\n    \"depositpaid\" : false,\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"2026-09-01\",\r\n        \"checkout\" : \"2026-09-02\"\r\n    },\r\n    \"additionalneeds\" : \"\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://restful-booker.herokuapp.com/booking",
+              "protocol": "https",
+              "host": [
+                "restful-booker",
+                "herokuapp",
+                "com"
+              ],
+              "path": [
+                "booking"
+              ]
+            },
+            "description": "TC booking_2 Регистрация без необязательного значения"
+          },
+          "response": []
+        },
+        {
+          "name": "incorrect_booking_1",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"firstname\" : \"\",\r\n    \"lastname\" : \"Браун\",\r\n    \"totalprice\" : 1,\r\n    \"depositpaid\" : true,\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"2026-09-01\",\r\n        \"checkout\" : \"2026-09-02\"\r\n    },\r\n    \"additionalneeds\" : \"\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://restful-booker.herokuapp.com/booking",
+              "protocol": "https",
+              "host": [
+                "restful-booker",
+                "herokuapp",
+                "com"
+              ],
+              "path": [
+                "booking"
+              ]
+            },
+            "description": "TC booking_3 Нет имени"
+          },
+          "response": []
+        },
+        {
+          "name": "incorrect_booking_2",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"firstname\" : \"Джим\",\r\n    \"lastname\" : \"\",\r\n    \"totalprice\" : 1,\r\n    \"depositpaid\" : true,\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"2026-09-01\",\r\n        \"checkout\" : \"2026-09-02\"\r\n    },\r\n    \"additionalneeds\" : \"\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://restful-booker.herokuapp.com/booking",
+              "protocol": "https",
+              "host": [
+                "restful-booker",
+                "herokuapp",
+                "com"
+              ],
+              "path": [
+                "booking"
+              ]
+            },
+            "description": "TC booking_3 Нет фамилии"
+          },
+          "response": []
+        },
+        {
+          "name": "incorrect_booking_3",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"firstname\" : \"Джим\",\r\n    \"lastname\" : \"Браун\",\r\n    \"totalprice\" : null,\r\n    \"depositpaid\" : true,\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"2026-09-01\",\r\n        \"checkout\" : \"2026-09-02\"\r\n    },\r\n    \"additionalneeds\" : \"\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://restful-booker.herokuapp.com/booking",
+              "protocol": "https",
+              "host": [
+                "restful-booker",
+                "herokuapp",
+                "com"
+              ],
+              "path": [
+                "booking"
+              ]
+            },
+            "description": "TC booking_3 Нет цены"
+          },
+          "response": []
+        },
+        {
+          "name": "incorrect_booking_4",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"firstname\" : \"Джим\",\r\n    \"lastname\" : \"Браун\",\r\n    \"totalprice\" : 1,\r\n    \"depositpaid\" : null,\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"2026-09-01\",\r\n        \"checkout\" : \"2026-09-02\"\r\n    },\r\n    \"additionalneeds\" : \"\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://restful-booker.herokuapp.com/booking",
+              "protocol": "https",
+              "host": [
+                "restful-booker",
+                "herokuapp",
+                "com"
+              ],
+              "path": [
+                "booking"
+              ]
+            },
+            "description": "TC booking_3 Нет данных об оплате"
+          },
+          "response": []
+        },
+        {
+          "name": "incorrect_booking_5",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"firstname\" : \"Джим\",\r\n    \"lastname\" : \"Браун\",\r\n    \"totalprice\" : 1,\r\n    \"depositpaid\" : false,\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"\",\r\n        \"checkout\" : \"2026-09-02\"\r\n    },\r\n    \"additionalneeds\" : \"\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://restful-booker.herokuapp.com/booking",
+              "protocol": "https",
+              "host": [
+                "restful-booker",
+                "herokuapp",
+                "com"
+              ],
+              "path": [
+                "booking"
+              ]
+            },
+            "description": "TC booking_3 Нет даты заезда"
+          },
+          "response": []
+        },
+        {
+          "name": "incorrect_booking_6",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"firstname\" : \"Джим\",\r\n    \"lastname\" : \"Браун\",\r\n    \"totalprice\" : 1,\r\n    \"depositpaid\" : false,\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"2026-09-01\",\r\n        \"checkout\" : \"\"\r\n    },\r\n    \"additionalneeds\" : \"\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://restful-booker.herokuapp.com/booking",
+              "protocol": "https",
+              "host": [
+                "restful-booker",
+                "herokuapp",
+                "com"
+              ],
+              "path": [
+                "booking"
+              ]
+            },
+            "description": "TC booking_3 Нет даты выезда"
+          },
+          "response": []
+        },
+        {
+          "name": "incorrect_booking_7",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"firstname\" : \"123456789_/*-<>/\",\r\n    \"lastname\" : \"!№;%:?*()\",\r\n    \"totalprice\" : \"абв\",\r\n    \"depositpaid\" : 123,\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"а\",\r\n        \"checkout\" : \"б\"\r\n    },\r\n    \"additionalneeds\" : \"<script>alert('hack')</script>\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://restful-booker.herokuapp.com/booking",
+              "protocol": "https",
+              "host": [
+                "restful-booker",
+                "herokuapp",
+                "com"
+              ],
+              "path": [
+                "booking"
+              ]
+            },
+            "description": "TC booking_4 Некорректные символы в имени и фамилии"
+          },
+          "response": []
+        },
+        {
+          "name": "incorrect_booking_8",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"firstname\" : \"Джим\",\r\n    \"lastname\" : \"Браун\",\r\n    \"totalprice\" : 111111111111111,\r\n    \"depositpaid\" : false,\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"2026-09-01\",\r\n        \"checkout\" : \"2026-09-02\"\r\n    },\r\n    \"additionalneeds\" : \"\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://restful-booker.herokuapp.com/booking",
+              "protocol": "https",
+              "host": [
+                "restful-booker",
+                "herokuapp",
+                "com"
+              ],
+              "path": [
+                "booking"
+              ]
+            },
+            "description": "TC booking_5 Некорректная цена (ввести -1, 0, 1.5, 1111111111)"
+          },
+          "response": []
+        },
+        {
+          "name": "incorrect_booking_9",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"firstname\" : \"Джим\",\r\n    \"lastname\" : \"Браун\",\r\n    \"totalprice\" : 1,\r\n    \"depositpaid\" : false,\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"2026-09-02\",\r\n        \"checkout\" : \"2026-09-01\"\r\n    },\r\n    \"additionalneeds\" : \"\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://restful-booker.herokuapp.com/booking",
+              "protocol": "https",
+              "host": [
+                "restful-booker",
+                "herokuapp",
+                "com"
+              ],
+              "path": [
+                "booking"
+              ]
+            },
+            "description": "TC booking_6 Некорректные даты (ввести даты в прошлом, далеком будущем, одинаковые, checkin > checkout)"
+          },
+          "response": []
+        },
+        {
+          "name": "id_by_booking_data",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://restful-booker.herokuapp.com/booking/",
+              "protocol": "https",
+              "host": [
+                "restful-booker",
+                "herokuapp",
+                "com"
+              ],
+              "path": [
+                "booking",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "firstname",
+                  "value": "Jim_test",
+                  "disabled": true
+                },
+                {
+                  "key": "lastname",
+                  "value": "Brown_test",
+                  "disabled": true
+                },
+                {
+                  "key": "checkin",
+                  "value": "2026-09-01",
+                  "disabled": true
+                },
+                {
+                  "key": "checkout",
+                  "value": "2027-09-01",
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "TC booking_7 Отмечать параметры из params по очереди"
+          },
+          "response": []
+        },
+        {
+          "name": "info_by_id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://restful-booker.herokuapp.com/booking/:id",
+              "protocol": "https",
+              "host": [
+                "restful-booker",
+                "herokuapp",
+                "com"
+              ],
+              "path": [
+                "booking",
+                ":id"
+              ],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "type": "text",
+                  "disabled": true
+                }
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "155"
+                }
+              ]
+            },
+            "description": "TC booking_8"
+          },
+          "response": []
+        },
+        {
+          "name": "booking_update",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Cookie",
+                "value": "token={{token}}"
+              },
+              {
+                "key": "",
+                "value": "",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"firstname\" : \"Jim2\",\r\n    \"lastname\" : \"Brown2\",\r\n    \"totalprice\" : 222,\r\n    \"depositpaid\" : false,\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"2026-10-01\",\r\n        \"checkout\" : \"2026-10-02\"\r\n    },\r\n    \"additionalneeds\" : \"Dinner\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://restful-booker.herokuapp.com/booking/:id",
+              "protocol": "https",
+              "host": [
+                "restful-booker",
+                "herokuapp",
+                "com"
+              ],
+              "path": [
+                "booking",
+                ":id"
+              ],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "type": "text",
+                  "disabled": true
+                }
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "111"
+                }
+              ]
+            },
+            "description": "TC booking_9"
+          },
+          "response": []
+        },
+        {
+          "name": "booking_partial_update",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Cookie",
+                "value": "token={{token}}"
+              },
+              {
+                "key": "",
+                "value": "",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"firstname\" : \"Jim3\",\r\n    \"lastname\" : \"Brown3\",\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"2026-10-02\",\r\n        \"checkout\" : \"2026-10-03\"\r\n    },\r\n    \"additionalneeds\" : \"Supper\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://restful-booker.herokuapp.com/booking/:id",
+              "protocol": "https",
+              "host": [
+                "restful-booker",
+                "herokuapp",
+                "com"
+              ],
+              "path": [
+                "booking",
+                ":id"
+              ],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "type": "text",
+                  "disabled": true
+                }
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "4124"
+                }
+              ]
+            },
+            "description": "TC booking_10"
+          },
+          "response": []
+        },
+        {
+          "name": "booking_delete",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "YWRtaW46cGFzc3dvcmQxMjM=]",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Cookie",
+                "value": "token={{token}}"
+              },
+              {
+                "key": "",
+                "value": "",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "https://restful-booker.herokuapp.com/booking/1?id=1017",
+              "protocol": "https",
+              "host": [
+                "restful-booker",
+                "herokuapp",
+                "com"
+              ],
+              "path": [
+                "booking",
+                "1"
+              ],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "1017",
+                  "type": "text"
+                }
+              ]
+            },
+            "description": "TC booking_11"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "ping",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://restful-booker.herokuapp.com/ping",
+          "protocol": "https",
+          "host": [
+            "restful-booker",
+            "herokuapp",
+            "com"
+          ],
+          "path": [
+            "ping"
+          ]
+        },
+        "description": "TC ping"
+      },
+      "response": []
+    }
+  ]
+}
